@@ -54,7 +54,7 @@ const Buttons = () => {
     let timestamp = Date.now();
 
     const {data, err} = await client.from("commands")
-        .insert([{id: uuidv4() , command: command}]);
+        .insert([{id: uuidv4() , command: command, robot_id: 1}]);
     console.log(err);
     console.log(data);
   }

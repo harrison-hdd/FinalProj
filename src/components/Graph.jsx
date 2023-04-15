@@ -240,7 +240,8 @@ function Graph() {
 				.limit(10);
 
 			for (let i = 0; i < soil_data.length; ++i) {
-				timeline.push(new Date(soil_data[i].created_at).toString())
+				let d = new Date(soil_data[i]['created_at'])
+				timeline.push(d.toLocaleDateString("en-US") + " " + d.toLocaleTimeString("en-US"));
 				moisture.push(soil_data[i].moisture);
 				humidity.push(soil_data[i].humidity);
 				temp.push(soil_data[i].temperature);
@@ -254,20 +255,20 @@ function Graph() {
 			// const weight = [60.0, 60.2, 59.1, 61.4, 59.9, 60.2, 59.8, 58.6, 59.6, 59.2];
 			// const weight2 = [61.0, 59.2, 59.8, 59.2, 59.1, 61.2, 60.8, 58.9, 60.6, 61.2];
 
-			const labels = [
-				"Week 1",
-				"Week 2",
-				"Week 3",
-				"Week 4",
-				"Week 5",
-				"Week 6",
-				"Week 7",
-				"Week 8",
-				"Week 9",
-				"Week 10"
-			];
+			// const labels = [
+			// 	"Week 1",
+			// 	"Week 2",
+			// 	"Week 3",
+			// 	"Week 4",
+			// 	"Week 5",
+			// 	"Week 6",
+			// 	"Week 7",
+			// 	"Week 8",
+			// 	"Week 9",
+			// 	"Week 10"
+			// ];
 			const data = {
-				labels: labels,
+				labels: timeline,
 				datasets: [
 					{
 						label: "Moisture",
